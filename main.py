@@ -39,7 +39,10 @@ def run_commands(cmds):
     for p in processes:
         p.wait()
 
-
+def patch_cs2(cs2_path):
+    api64_path = cs2_path[1:-1] + "\\game\\csgo\\bin\\win64"
+    shutil.copy("resources/ClientPatcher.exe", api64_path)
+    subprocess.run("ClientPatcher.exe", cwd=api64_path)
 
 if __name__ == "__main__":
     import pprint
@@ -67,8 +70,6 @@ if __name__ == "__main__":
     
     ok_setup = input("Type OK to patch your CS2 client.dll, or SKIP to skip: ").upper()
     if ok_setup == "OK":
-        api64_path = cs2_path[1:-1] + "\\game\\csgo\\bin\\win64"
-        shutil.copy("./resources/ClientPatcher.exe", api64_path)
-        subprocess.run("ClientPatcher.exe", cwd=api64_path)
+        patch_cs2(cs2_path)
 
-    print(f"Complete!, you can locate the game at {cs2_path[1:-1]}\\game\\bin\\win64")
+    input(f"Complete!, you can locate the game at {cs2_path[1:-1]}\\game\\bin\\win64")
