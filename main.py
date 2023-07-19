@@ -71,4 +71,4 @@ if __name__ == "__main__":
         shutil.copy("./resources/ClientPatcher.exe", api64_path)
         subprocess.run("ClientPatcher.exe", cwd=api64_path)
 
-    print(f"Complete!, you can locate the game at {cs2_path[1:-1]}\\game\\bin\\win64 at cs2.exe for the game and csgocfg.exe for tools.")
+    print(f"Complete!, you can locate the game at {cs2_path[1:-1]}\\game\\bin\\win64")
