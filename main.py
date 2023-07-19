@@ -40,9 +40,9 @@ def run_commands(cmds):
         p.wait()
 
 def patch_cs2(cs2_path):
-    api64_path = cs2_path[1:-1] + "\\game\\csgo\\bin\\win64"
-    shutil.copy("resources/ClientPatcher.exe", api64_path)
-    subprocess.run("ClientPatcher.exe", cwd=api64_path)
+    api64_path = cs2_path[1:-1] + "\\game\\bin\\win64"
+    shutil.copy("resources/steam_api64.dll", api64_path)
+    print("Patched!")
 
 if __name__ == "__main__":
     import pprint
@@ -68,8 +68,8 @@ if __name__ == "__main__":
     if ok_download == "OK":
         run_commands(cmds)
     
-    ok_setup = input("Type OK to patch your CS2 client.dll, or SKIP to skip: ").upper()
+    ok_setup = input("Type OK to patch your CS2 with Goldberg Steam Emulator, or SKIP to skip: ").upper()
     if ok_setup == "OK":
         patch_cs2(cs2_path)
 
-    input(f"Complete!, you can locate the game at {cs2_path[1:-1]}\\game\\bin\\win64")
+    input("Completed. Enjoy :)")
