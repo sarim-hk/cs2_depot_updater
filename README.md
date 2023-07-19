@@ -11,5 +11,5 @@ While this tool makes the process of getting the game easier, there's still some
 - DM me on Twitter, [@hk_sarim](https://twitter.com/hk_sarim).
 
 ## Credits
-- Thanks to [RealSkid](https://www.unknowncheats.me/forum/counter-strike-2-a/587993-client-dll-automated-patch.html) for `ClientPatcher.exe`.
+- Thanks to [Mr_Goldberg](https://gitlab.com/Mr_Goldberg/goldberg_emulator) for `steam_api64.dll`.
 - Thanks to [Vauff](https://github.com/Vauff/DepotDownloader) for `DepotDownloader.exe`.
