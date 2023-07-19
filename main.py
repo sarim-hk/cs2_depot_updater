@@ -1,4 +1,6 @@
 import glob
+import subprocess
+import threading
 
 def get_cs2_path():
     path = input("Input your CS2 path (usually your Counter-Strike Global Offensive folder): ")
@@ -22,7 +24,7 @@ def link_depots_to_manifests(depots, manifest_paths):
 
 def make_commands(depots, cs2_path):
     cmds = []
-    cmd = ".DepotDownloader.exe -app 730 -depot DEPOTNO -validate -decryptionkey DECKEY -manifestpath MANIPATH -dir CS2DIR"
+    cmd = "DepotDownloader.exe -app 730 -depot DEPOTNO -validate -decryptionkey DECKEY -manifestpath MANIPATH -dir CS2DIR"
     for depot_no in depots:
         new_cmd = cmd
         new_cmd = new_cmd.replace("DEPOTNO", depot_no)
@@ -31,6 +33,15 @@ def make_commands(depots, cs2_path):
         new_cmd = new_cmd.replace("CS2DIR", cs2_path)
         cmds.append(new_cmd)
     return cmds
+
+def run_command(cmd):
+    subprocess.run(cmd, shell=True, capture_output=True, text=True)
+
+def run_commands(cmds):
+    threads = {}
+    for i, cmd in enumerate(cmds):
+        threads[i] = threading.Thread(target=run_command, args=(cmd,))
+        threads[i].start()
 
 if __name__ == "__main__":
     import pprint
@@ -46,4 +57,13 @@ if __name__ == "__main__":
     depots = link_depots_to_manifests(depots, manifest_paths)
     del manifest_paths
 
-    print(make_commands(depots, cs2_path)[0])
+    cmds = make_commands(depots, cs2_path)
+
+    for cmd in cmds:
+        print(cmd)
+
+    ok_continue = input("Type OK to continue with the download: ").upper()
+    if ok_continue == "OK":
+        print("You will not see any console output until the downloads are complete. Stay patient :)")
+        run_commands(cmds)
+
