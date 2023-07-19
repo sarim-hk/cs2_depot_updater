@@ -24,7 +24,7 @@ def link_depots_to_manifests(depots, manifest_paths):
 
 def make_commands(depots, cs2_path):
     cmds = []
-    cmd = "DepotDownloader.exe -app 730 -depot DEPOTNO -validate -decryptionkey DECKEY -manifestpath MANIPATH -dir CS2DIR"
+    cmd = "resources/DepotDownloader.exe -app 730 -depot DEPOTNO -validate -decryptionkey DECKEY -manifestpath MANIPATH -dir CS2DIR"
     for depot_no in depots:
         new_cmd = cmd
         new_cmd = new_cmd.replace("DEPOTNO", depot_no)
