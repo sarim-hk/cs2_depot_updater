@@ -1,6 +1,5 @@
 import glob
 import subprocess
-import threading
 
 def get_cs2_path():
     path = input("Input your CS2 path (usually your Counter-Strike Global Offensive folder): ")
@@ -34,14 +33,10 @@ def make_commands(depots, cs2_path):
         cmds.append(new_cmd)
     return cmds
 
-def run_command(cmd):
-    subprocess.run(cmd, shell=True, capture_output=True, text=True)
-
 def run_commands(cmds):
-    threads = {}
-    for i, cmd in enumerate(cmds):
-        threads[i] = threading.Thread(target=run_command, args=(cmd,))
-        threads[i].start()
+    processes = [subprocess.Popen(cmd) for cmd in cmds]
+    for p in processes:
+        p.wait()
 
 if __name__ == "__main__":
     import pprint
@@ -64,6 +59,5 @@ if __name__ == "__main__":
 
     ok_continue = input("Type OK to continue with the download: ").upper()
     if ok_continue == "OK":
-        print("You will not see any console output until the downloads are complete. Stay patient :)")
         run_commands(cmds)
 
