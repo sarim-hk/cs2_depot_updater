@@ -4,7 +4,7 @@ The python script will download and patch CS2 for you, given you have the requir
 ## Prerequisites
 While this tool makes the process of getting the game easier, there's still some work you need to do yourself:
 - Python 3 must be installed.
-- The four `.manifest` files you want to use should be in the main directory (alongside `main.py`), and only the four you want to use.
+- The three `.manifest` files you want to use should be in the main directory (alongside `main.py`), and only the three you want to use (lv not included).
 
 ## Support
 - Open an issue on GitHub.
