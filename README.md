@@ -1,4 +1,7 @@
 # [CS2] Depot Downloader
+
+NOT MAINTAINED DUE TO CS2 BEING RELEASED TO THE PUBLIC
+
 The python script will download and patch CS2 for you, given you have the required `.manifest` files.
 
 ## Prerequisites
