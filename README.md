@@ -11,7 +11,6 @@ While this tool makes the process of getting the game easier, there's still some
 
 ## Support
 - Open an issue on GitHub.
-- DM me on Twitter, [@hk_sarim](https://twitter.com/hk_sarim).
 
 ## Credits
 - Thanks to [Mr_Goldberg](https://gitlab.com/Mr_Goldberg/goldberg_emulator) for `steam_api64.dll`.
